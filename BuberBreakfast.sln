@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuberBreakfast.Contracts", "BuberBreakfast.Contracts\BuberBreakfast.Contracts.csproj", "{BFC22124-6634-43FA-A5CC-31F5435B2A51}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuberBreakfast", "BuberBreakfast\BuberBreakfast.csproj", "{F4770BCD-4C9B-4DE4-9FFB-EF903D3741FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BFC22124-6634-43FA-A5CC-31F5435B2A51}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFC22124-6634-43FA-A5CC-31F5435B2A51}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFC22124-6634-43FA-A5CC-31F5435B2A51}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFC22124-6634-43FA-A5CC-31F5435B2A51}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F4770BCD-4C9B-4DE4-9FFB-EF903D3741FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4770BCD-4C9B-4DE4-9FFB-EF903D3741FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4770BCD-4C9B-4DE4-9FFB-EF903D3741FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4770BCD-4C9B-4DE4-9FFB-EF903D3741FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
