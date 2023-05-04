@@ -1,13 +1,15 @@
 using BuberBreakfast.Contracts.Breakfast;
 using BuberBreakfast.Models;
+using BuberBreakfast.ServiceErrors;
 using BuberBreakfast.Services.Breakfasts;
+using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BuberBreakfast.Controllers;
 
 [ApiController]
 [Route("/breakfasts")]
-public class BreakfastController : ControllerBase
+public class BreakfastController : ApiController
 {
     private readonly IBreakfastService _breakfastService;
 
@@ -29,7 +31,7 @@ public class BreakfastController : ControllerBase
             request.Savory,
             request.Sweet
         );
-        
+
         _breakfastService.CreateBreakfast(breakfast);
 
         var response = new BreakfastResponse(
@@ -44,15 +46,25 @@ public class BreakfastController : ControllerBase
         );
 
         return CreatedAtAction(
-            actionName: nameof(GetBreakfast), 
-            routeValues: new { id = response.Id }, 
-            value: response);
+            actionName: nameof(GetBreakfast),
+            routeValues: new { id = response.Id },
+            value: response
+        );
     }
 
     [HttpGet("{id:guid}")]
     public IActionResult GetBreakfast(Guid id)
     {
-        Breakfast breakfast = _breakfastService.GetBreakfast(id);
+        ErrorOr<Breakfast> getBreakfastResult = _breakfastService.GetBreakfast(id);
+
+        if (
+            getBreakfastResult.IsError && getBreakfastResult.FirstError == Errors.Breakfast.NotFound
+        )
+        {
+            return NotFound();
+        }
+
+        var breakfast = getBreakfastResult.Value;
 
         var response = new BreakfastResponse(
             breakfast.Id,
@@ -79,10 +91,11 @@ public class BreakfastController : ControllerBase
             request.EndDateTime,
             DateTime.UtcNow,
             request.Savory,
-            request.Sweet);
+            request.Sweet
+        );
 
         _breakfastService.UpsertBreakfast(breakfast);
-        
+
         // TODO: Return 201 Created if the breakfast was created, 204 No Content if the breakfast was updated
         return NoContent();
     }
