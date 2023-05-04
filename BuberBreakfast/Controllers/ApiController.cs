@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using ErrorOr;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,10 +13,10 @@ public class ApiController : ControllerBase
 
         var statusCode = firstError.Type switch
         {
-            ErrorType.Validation => 400,
-            ErrorType.NotFound => 404,
-            ErrorType.Conflict => 409,
-            _ => 500
+            ErrorType.Validation => StatusCodes.Status400BadRequest,
+            ErrorType.NotFound => StatusCodes.Status404NotFound,
+            ErrorType.Conflict => StatusCodes.Status409Conflict,
+            _ => StatusCodes.Status500InternalServerError
         };
 
         return Problem(statusCode: statusCode, title: firstError.Description);

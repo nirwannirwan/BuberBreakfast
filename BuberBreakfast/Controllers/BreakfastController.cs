@@ -1,4 +1,3 @@
-using System;
 using BuberBreakfast.Contracts.Breakfast;
 using BuberBreakfast.Models;
 using BuberBreakfast.ServiceErrors;
@@ -9,12 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 namespace BuberBreakfast.Controllers;
 
 [ApiController]
-[Route("/breakfasts")]
-public class BreakfastController : ApiController
+[Route("[controller]")]
+public class BreakfastsController : ApiController
 {
     private readonly IBreakfastService _breakfastService;
 
-    public BreakfastController(IBreakfastService breakfastService)
+    public BreakfastsController(IBreakfastService breakfastService)
     {
         _breakfastService = breakfastService;
     }
