@@ -1,15 +1,18 @@
+using System;
+using System.Collections.Generic;
+
 namespace BuberBreakfast.Models;
 
 public class Breakfast
 {
     public Guid Id { get; }
-    public string Name { get; } = string.Empty;
-    public string Description { get; } = string.Empty;
+    public string Name { get; }
+    public string Description { get; }
     public DateTime StartDateTime { get; }
     public DateTime EndDateTime { get; }
     public DateTime LastModifiedDateTime { get; }
-    public List<string> Savory { get; } = new();
-    public List<string> Sweet { get; } = new();
+    public List<string> Savory { get; }
+    public List<string> Sweet { get; }
 
     public Breakfast(
         Guid id,
