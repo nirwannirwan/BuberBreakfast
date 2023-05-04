@@ -1,8 +1,8 @@
-PUT https://localhost:7162/breakfasts/f661c3da-92b4-47a4-97d0-2e2be667a52c
+PUT https://localhost:7162/breakfasts/aa67ef7a-4d8d-4bb9-8f95-b546b05b6877
 Content-Type: application/json
 
 {
-  "name": "Vegan Sunshinezz",
+  "name": "Vegan Sunshinezzz",
   "description": "Vegan everything! Join us for a healthy breakfast..",
   "startDateTime": "2022-04-08T08:00:00",
   "endDateTime": "2022-04-08T11:00:00",
